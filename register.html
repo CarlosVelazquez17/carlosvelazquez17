@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Registro - FakeGram</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    #otroGeneroContainer { display: none; }
+  </style>
+</head>
+<body>
+  <div class="container mt-5">
+    <h2>Regístrate en FakeGram</h2>
+    <form id="registerForm">
+      <div class="mb-3">
+        <label for="regUsername" class="form-label">Username *</label>
+        <input type="text" class="form-control" id="regUsername" name="username" required>
+      </div>
+      <div class="mb-3">
+        <label for="regPassword" class="form-label">Contraseña *</label>
+        <input type="password" class="form-control" id="regPassword" name="password" required>
+      </div>
+      <div class="mb-3">
+        <label for="confirmPassword" class="form-label">Confirmar Contraseña *</label>
+        <input type="password" class="form-control" id="confirmPassword" name="confirmPassword" required>
+      </div>
+      <div class="mb-3">
+        <label for="regEmail" class="form-label">Email *</label>
+        <input type="email" class="form-control" id="regEmail" name="email" required>
+      </div>
+      <div class="mb-3">
+        <label for="regNombre" class="form-label">Nombre *</label>
+        <input type="text" class="form-control" id="regNombre" name="nombre" required>
+      </div>
+      <div class="mb-3">
+        <label for="regApellidos" class="form-label">Apellidos</label>
+        <input type="text" class="form-control" id="regApellidos" name="apellidos">
+      </div>
+      <div class="mb-3">
+        <label for="regGenero" class="form-label">Género *</label>
+        <select class="form-select" id="regGenero" name="genero" required>
+          <option value="">[Seleccione]</option>
+          <option value="Hombre">Hombre</option>
+          <option value="Mujer">Mujer</option>
+          <option value="No Aplica">No Aplica</option>
+          <option value="Prefiero no Decirlo">Prefiero no Decirlo</option>
+          <option value="Otro">Otro</option>
+        </select>
+      </div>
+      <div class="mb-3" id="otroGeneroContainer">
+        <label for="otroGenero" class="form-label">Especifique Género</label>
+        <input type="text" class="form-control" id="otroGenero" name="otroGenero">
+      </div>
+      <div class="mb-3">
+        <label for="regFechaNacimiento" class="form-label">Fecha de Nacimiento *</label>
+        <input type="date" class="form-control" id="regFechaNacimiento" name="fechaNacimiento" required>
+      </div>
+      <button type="submit" class="btn btn-primary">Registrar</button>
+    </form>
+  </div>
+  
+  <!-- jQuery y Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    $(document).ready(function(){
+      // Mostrar/ocultar input para "Otro" en género
+      $('#regGenero').change(function(){
+        if($(this).val() === 'Otro'){
+          $('#otroGeneroContainer').show();
+          $('#otroGenero').attr('required', true);
+        } else {
+          $('#otroGeneroContainer').hide();
+          $('#otroGenero').removeAttr('required').val('');
+        }
+      });
+      
+      $('#registerForm').submit(function(e){
+        e.preventDefault();
+        let errores = [];
+        
+        // Validar campos obligatorios
+        $('#registerForm [required]').each(function(){
+          if($(this).val().trim() === ""){
+            errores.push("El campo " + $(this).prev('label').text() + " es obligatorio.");
+          }
+        });
+        
+        // Validar formato de email
+        let email = $('#regEmail').val().trim();
+        let emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if(email && !emailRegex.test(email)){
+          errores.push("El email ingresado no es válido.");
+        }
+        
+        // Validar coincidencia de contraseñas
+        let password = $('#regPassword').val();
+        let confirmPassword = $('#confirmPassword').val();
+        if(password !== confirmPassword){
+          errores.push("Las contraseñas no coinciden.");
+        }
+        
+        // Validar que el usuario tenga al menos 18 años
+        let fechaNacimiento = new Date($('#regFechaNacimiento').val());
+        let hoy = new Date();
+        let edad = hoy.getFullYear() - fechaNacimiento.getFullYear();
+        let m = hoy.getMonth() - fechaNacimiento.getMonth();
+        if(m < 0 || (m === 0 && hoy.getDate() < fechaNacimiento.getDate())){
+          edad--;
+        }
+        if(edad < 18){
+          errores.push("Debes tener al menos 18 años.");
+        }
+        
+        if(errores.length > 0){
+          alert(errores.join("\n"));
+        } else {
+          // Almacenar datos del usuario en localStorage
+          let usuarioRegistrado = {
+            username: $('#regUsername').val().trim(),
+            password: $('#regPassword').val()
+          };
+          localStorage.setItem("usuarioRegistrado", JSON.stringify(usuarioRegistrado));
+          alert("Registro exitoso. Ahora puedes iniciar sesión en FakeGram.");
+          window.location.href = "login.html";
+        }
+      });
+    });
+  </script>
+</body>
+</html>

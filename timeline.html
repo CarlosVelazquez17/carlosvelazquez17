@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Timeline - FakeGram</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    .post img { width: 100%; height: auto; }
+  </style>
+</head>
+<body>
+  <div class="container mt-4">
+    <h2>Timeline</h2>
+    <div class="row">
+      <!-- Ejemplo de publicación -->
+      <div class="col-md-6 mb-4 post">
+        <div class="card">
+          <img src="https://picsum.photos/500/300?random=21" class="card-img-top" alt="Publicación">
+          <div class="card-body">
+            <h5 class="card-title">@usuarioX</h5>
+            <p class="card-text"><strong>Nombre Completo:</strong> Usuario Ejemplo</p>
+            <p class="card-text">Una descripción o caption de la publicación.</p>
+            <p class="card-text">Likes: <span class="like-count">25</span></p>
+            <button class="btn btn-outline-primary like-btn">Like</button>
+          </div>
+        </div>
+      </div>
+      <!-- Otra publicación de ejemplo -->
+      <div class="col-md-6 mb-4 post">
+        <div class="card">
+          <img src="https://picsum.photos/500/300?random=22" class="card-img-top" alt="Publicación">
+          <div class="card-body">
+            <h5 class="card-title">@usuarioY</h5>
+            <p class="card-text"><strong>Nombre Completo:</strong> Otro Usuario</p>
+            <p class="card-text">Otra descripción de la publicación.</p>
+            <p class="card-text">Likes: <span class="like-count">30</span></p>
+            <button class="btn btn-outline-primary like-btn">Like</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- jQuery y Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    $(document).ready(function(){
+      $('.like-btn').click(function(){
+        let $btn = $(this);
+        let $count = $btn.siblings('p').find('.like-count');
+        let likes = parseInt($count.text());
+        if($btn.text() === "Like"){
+          $count.text(likes + 1);
+          $btn.text("Dislike").removeClass("btn-outline-primary").addClass("btn-primary");
+        } else {
+          $count.text(likes - 1);
+          $btn.text("Like").removeClass("btn-primary").addClass("btn-outline-primary");
+        }
+      });
+    });
+  </script>
+</body>
+</html>
