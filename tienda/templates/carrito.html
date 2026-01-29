@@ -1,0 +1,227 @@
+{% extends 'base.html' %}
+
+{% block title %}Carrito de Compras - CapStore{% endblock %}
+
+{% block content %}
+<div class="row">
+    <!-- Título -->
+    <div class="col-12 mb-4">
+        <h2 class="fw-bold">
+            <i class="bi bi-cart3"></i> Mi Carrito
+        </h2>
+        <p class="text-muted">Revisa tus productos antes de finalizar la compra</p>
+    </div>
+
+    <!-- Contenido del Carrito -->
+    <div class="col-lg-8">
+        <!-- Producto 1 -->
+        <div class="card mb-3 border-0 shadow-sm">
+            <div class="card-body">
+                <div class="row align-items-center">
+                    <div class="col-md-2 col-3">
+                        <div class="bg-primary rounded" style="height: 80px; width: 80px; display: flex; align-items: center; justify-content: center;">
+                            <i class="bi bi-image text-white" style="font-size: 2rem;"></i>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-9">
+                        <h6 class="mb-1 fw-bold">Gorra Urban Style</h6>
+                        <p class="text-muted small mb-1">Snapback - Color Negro</p>
+                        <p class="text-muted small mb-0">Talla: Ajustable</p>
+                    </div>
+                    <div class="col-md-2 col-6 mt-2 mt-md-0">
+                        <div class="input-group input-group-sm">
+                            <button class="btn btn-outline-secondary" type="button">
+                                <i class="bi bi-dash"></i>
+                            </button>
+                            <input type="number" class="form-control text-center" value="1" min="1">
+                            <button class="btn btn-outline-secondary" type="button">
+                                <i class="bi bi-plus"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="col-md-2 col-4 mt-2 mt-md-0 text-center">
+                        <p class="mb-0 fw-bold text-primary">$299.00</p>
+                    </div>
+                    <div class="col-md-2 col-2 mt-2 mt-md-0 text-end">
+                        <button class="btn btn-outline-danger btn-sm">
+                            <i class="bi bi-trash"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Producto 2 -->
+        <div class="card mb-3 border-0 shadow-sm">
+            <div class="card-body">
+                <div class="row align-items-center">
+                    <div class="col-md-2 col-3">
+                        <div class="bg-success rounded" style="height: 80px; width: 80px; display: flex; align-items: center; justify-content: center;">
+                            <i class="bi bi-image text-white" style="font-size: 2rem;"></i>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-9">
+                        <h6 class="mb-1 fw-bold">Gorra Classic Luxury</h6>
+                        <p class="text-muted small mb-1">Premium - Color Azul</p>
+                        <p class="text-muted small mb-0">Talla: Ajustable</p>
+                    </div>
+                    <div class="col-md-2 col-6 mt-2 mt-md-0">
+                        <div class="input-group input-group-sm">
+                            <button class="btn btn-outline-secondary" type="button">
+                                <i class="bi bi-dash"></i>
+                            </button>
+                            <input type="number" class="form-control text-center" value="2" min="1">
+                            <button class="btn btn-outline-secondary" type="button">
+                                <i class="bi bi-plus"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="col-md-2 col-4 mt-2 mt-md-0 text-center">
+                        <p class="mb-0 fw-bold text-primary">$1,198.00</p>
+                    </div>
+                    <div class="col-md-2 col-2 mt-2 mt-md-0 text-end">
+                        <button class="btn btn-outline-danger btn-sm">
+                            <i class="bi bi-trash"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Producto 3 -->
+        <div class="card mb-3 border-0 shadow-sm">
+            <div class="card-body">
+                <div class="row align-items-center">
+                    <div class="col-md-2 col-3">
+                        <div class="bg-warning rounded" style="height: 80px; width: 80px; display: flex; align-items: center; justify-content: center;">
+                            <i class="bi bi-image text-white" style="font-size: 2rem;"></i>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-9">
+                        <h6 class="mb-1 fw-bold">Gorra Runner Max</h6>
+                        <p class="text-muted small mb-1">Deportiva - Color Blanco</p>
+                        <p class="text-muted small mb-0">Talla: Ajustable</p>
+                    </div>
+                    <div class="col-md-2 col-6 mt-2 mt-md-0">
+                        <div class="input-group input-group-sm">
+                            <button class="btn btn-outline-secondary" type="button">
+                                <i class="bi bi-dash"></i>
+                            </button>
+                            <input type="number" class="form-control text-center" value="1" min="1">
+                            <button class="btn btn-outline-secondary" type="button">
+                                <i class="bi bi-plus"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="col-md-2 col-4 mt-2 mt-md-0 text-center">
+                        <p class="mb-0 fw-bold text-primary">$329.00</p>
+                    </div>
+                    <div class="col-md-2 col-2 mt-2 mt-md-0 text-end">
+                        <button class="btn btn-outline-danger btn-sm">
+                            <i class="bi bi-trash"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Cupón de descuento -->
+        <div class="card border-0 shadow-sm mb-3">
+            <div class="card-body">
+                <h6 class="fw-bold mb-3">
+                    <i class="bi bi-tag"></i> ¿Tienes un cupón de descuento?
+                </h6>
+                <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Ingresa tu código">
+                    <button class="btn btn-primary" type="button">Aplicar</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Botón continuar comprando -->
+        <div class="d-grid d-md-block">
+            <a href="{% url 'productos' %}" class="btn btn-outline-primary">
+                <i class="bi bi-arrow-left"></i> Continuar Comprando
+            </a>
+        </div>
+    </div>
+
+    <!-- Resumen del Pedido -->
+    <div class="col-lg-4">
+        <div class="card border-0 shadow-sm sticky-top" style="top: 100px;">
+            <div class="card-body">
+                <h5 class="fw-bold mb-4">Resumen del Pedido</h5>
+                
+                <!-- Subtotal -->
+                <div class="d-flex justify-content-between mb-2">
+                    <span class="text-muted">Subtotal (4 productos)</span>
+                    <span class="fw-semibold">$1,826.00</span>
+                </div>
+
+                <!-- Envío -->
+                <div class="d-flex justify-content-between mb-2">
+                    <span class="text-muted">Envío</span>
+                    <span class="text-success fw-semibold">Gratis</span>
+                </div>
+
+                <!-- Descuento -->
+                <div class="d-flex justify-content-between mb-3 pb-3 border-bottom">
+                    <span class="text-muted">Descuento</span>
+                    <span class="text-danger fw-semibold">-$0.00</span>
+                </div>
+
+                <!-- Total -->
+                <div class="d-flex justify-content-between mb-4">
+                    <span class="h5 fw-bold">Total</span>
+                    <span class="h5 fw-bold text-primary">$1,826.00</span>
+                </div>
+
+                <!-- Botón de pago -->
+                <div class="d-grid gap-2 mb-3">
+                    <button class="btn btn-primary btn-lg">
+                        <i class="bi bi-credit-card"></i> Proceder al Pago
+                    </button>
+                </div>
+
+                <!-- Métodos de pago -->
+                <div class="text-center">
+                    <p class="small text-muted mb-2">Aceptamos:</p>
+                    <div class="d-flex justify-content-center gap-2">
+                        <i class="bi bi-credit-card-2-front fs-4 text-muted"></i>
+                        <i class="bi bi-paypal fs-4 text-muted"></i>
+                        <i class="bi bi-wallet2 fs-4 text-muted"></i>
+                    </div>
+                </div>
+
+                <!-- Garantías -->
+                <div class="mt-4 pt-3 border-top">
+                    <div class="d-flex align-items-center mb-2">
+                        <i class="bi bi-shield-check text-success me-2"></i>
+                        <small class="text-muted">Compra 100% segura</small>
+                    </div>
+                    <div class="d-flex align-items-center mb-2">
+                        <i class="bi bi-truck text-primary me-2"></i>
+                        <small class="text-muted">Envío gratis en compras +$500</small>
+                    </div>
+                    <div class="d-flex align-items-center">
+                        <i class="bi bi-arrow-repeat text-info me-2"></i>
+                        <small class="text-muted">Devolución gratuita 30 días</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Carrito Vacío (mostrar solo si el carrito está vacío) -->
+<!-- 
+<div class="text-center py-5">
+    <i class="bi bi-cart-x text-muted" style="font-size: 5rem;"></i>
+    <h3 class="mt-4 fw-bold">Tu carrito está vacío</h3>
+    <p class="text-muted mb-4">Agrega productos para comenzar tu compra</p>
+    <a href="{% url 'productos' %}" class="btn btn-primary btn-lg">
+        <i class="bi bi-shop"></i> Ir a la Tienda
+    </a>
+</div>
+-->
+{% endblock %}

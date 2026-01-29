@@ -1,0 +1,11 @@
+Para poder activar el servidor primero tienes que abrir la capeta en vsc y abrir una terminal nueva en la cual van a ingresar este código 
+
+venv/Scrptis/actívate
+
+una ves ingresado debería de aparecer esto "(venv)" al principio de la terminal, si funciona puedes ahora si activar el servidor con 
+
+python manage.py runserver 0.0.0.0:8000
+
+y ingresar en Chrome a:
+
+localhost:8000

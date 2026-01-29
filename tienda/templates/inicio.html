@@ -1,0 +1,283 @@
+{% extends 'base.html' %}
+
+{% block title %}
+  Inicio - CapStore
+{% endblock %}
+
+{% block content %}
+  <!-- Hero Section con Carrusel -->
+  <div id="carouselInicio" class="carousel slide mb-5 rounded-4 overflow-hidden shadow-lg" data-bs-ride="carousel">
+    <div class="carousel-indicators">
+      <button type="button" data-bs-target="#carouselInicio" data-bs-slide-to="0" class="active"></button>
+      <button type="button" data-bs-target="#carouselInicio" data-bs-slide-to="1"></button>
+      <button type="button" data-bs-target="#carouselInicio" data-bs-slide-to="2"></button>
+    </div>
+
+    <div class="carousel-inner">
+      <!-- Slide 1 -->
+      <div class="carousel-item active">
+        <div class="position-relative" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); min-height: 500px;">
+          <div class="position-absolute top-0 start-0 w-100 h-100" style="background: url('https://images.unsplash.com/photo-1588850561407-ed78c282e89b?w=1200') center/cover; opacity: 0.15;"></div>
+          <div class="container position-relative h-100 d-flex align-items-center" style="min-height: 500px;">
+            <div class="row w-100">
+              <div class="col-lg-7 text-white">
+                <span class="badge bg-warning text-dark mb-3 px-3 py-2">Nueva Colección 2025</span>
+                <h1 class="display-2 fw-bold mb-4">Estilo Urbano<br />Definido</h1>
+                <p class="lead mb-4 fs-4">Descubre las gorras más trendy de la temporada. Calidad premium y diseños únicos.</p>
+                <div class="d-flex gap-3 flex-wrap">
+                  <a href="{% url 'productos' %}" class="btn btn-light btn-lg px-4 py-3"><i class="bi bi-shop"></i> Explorar Productos</a>
+                  <a href="#categorias" class="btn btn-outline-light btn-lg px-4 py-3">Ver Categorías</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 2 -->
+      <div class="carousel-item">
+        <div class="position-relative" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); min-height: 500px;">
+          <div class="position-absolute top-0 start-0 w-100 h-100" style="background: url('https://images.unsplash.com/photo-1575428652377-a2d80e2277fc?w=1200') center/cover; opacity: 0.15;"></div>
+          <div class="container position-relative h-100 d-flex align-items-center" style="min-height: 500px;">
+            <div class="row w-100">
+              <div class="col-lg-7 text-white">
+                <span class="badge bg-light text-dark mb-3 px-3 py-2"><i class="bi bi-truck"></i> Envío Express</span>
+                <h1 class="display-2 fw-bold mb-4">Envío Gratis<br />En Todo México</h1>
+                <p class="lead mb-4 fs-4">En compras mayores a $500. Recibe tu gorra en 3-5 días hábiles.</p>
+                <a href="{% url 'productos' %}" class="btn btn-light btn-lg px-4 py-3">Comprar Ahora <i class="bi bi-arrow-right"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 3 -->
+      <div class="carousel-item">
+        <div class="position-relative" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); min-height: 500px;">
+          <div class="position-absolute top-0 start-0 w-100 h-100" style="background: url('https://images.unsplash.com/photo-1521369909029-2afed882baee?w=1200') center/cover; opacity: 0.15;"></div>
+          <div class="container position-relative h-100 d-flex align-items-center" style="min-height: 500px;">
+            <div class="row w-100">
+              <div class="col-lg-7 text-white">
+                <span class="badge bg-danger mb-3 px-3 py-2 fs-6">🔥 Super Oferta</span>
+                <h1 class="display-2 fw-bold mb-4">20% OFF<br />Snapbacks</h1>
+                <p class="lead mb-4 fs-4">Descuento especial en toda nuestra línea de gorras snapback. ¡Por tiempo limitado!</p>
+                <a href="{% url 'productos' %}" class="btn btn-warning btn-lg px-4 py-3 text-dark fw-bold"><i class="bi bi-tag-fill"></i> Aprovechar Oferta</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselInicio" data-bs-slide="prev"><span class="carousel-control-prev-icon"></span></button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselInicio" data-bs-slide="next"><span class="carousel-control-next-icon"></span></button>
+  </div>
+
+  <!-- Categorías Populares -->
+  <section class="mb-5" id="categorias">
+    <div class="text-center mb-5">
+      <h2 class="display-5 fw-bold mb-3">Categorías Populares</h2>
+      <p class="text-muted fs-5">Encuentra el estilo perfecto para ti</p>
+    </div>
+    <div class="row g-4">
+      <div class="col-md-4">
+        <div class="card h-100 border-0 shadow-sm hover-lift" style="transition: transform 0.3s;">
+          <div class="position-relative overflow-hidden rounded-top" style="height: 250px;">
+            <img src="https://images.unsplash.com/photo-1588850561407-ed78c282e89b?w=400&h=300&fit=crop" class="w-100 h-100" style="object-fit: cover; transition: transform 0.3s;" alt="Snapback" />
+            <div class="position-absolute top-0 start-0 w-100 h-100" style="background: rgba(0,0,0,0.25);"></div>
+            <div class="position-absolute bottom-0 start-0 p-4 text-white">
+              <h3 class="fw-bold mb-0">Snapback</h3>
+              <p class="mb-0 small">Estilo urbano ajustable</p>
+            </div>
+          </div>
+          <div class="card-body text-center p-4">
+            <p class="card-text text-muted mb-3">Diseños modernos con visera plana y cierre trasero ajustable</p>
+            <a href="{% url 'productos' %}" class="btn btn-outline-primary">Ver Colección <i class="bi bi-arrow-right"></i></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="card h-100 border-0 shadow-sm hover-lift" style="transition: transform 0.3s;">
+          <div class="position-relative overflow-hidden rounded-top" style="height: 250px;">
+            <img src="https://images.unsplash.com/photo-1575428652377-a2d80e2277fc?w=600&h=400&fit=crop" class="w-100 h-100" style="object-fit: cover; transition: transform 0.3s;" alt="Deportivas" />
+            <div class="position-absolute top-0 start-0 w-100 h-100" style="background: rgba(0,0,0,0.25);"></div>
+            <div class="position-absolute bottom-0 start-0 p-4 text-white">
+              <h3 class="fw-bold mb-0">Deportivas</h3>
+              <p class="mb-0 small">Performance y comodidad</p>
+            </div>
+          </div>
+          <div class="card-body text-center p-4">
+            <p class="card-text text-muted mb-3">Perfectas para entrenar, correr o cualquier actividad deportiva</p>
+            <a href="{% url 'productos' %}" class="btn btn-outline-warning">Ver Colección <i class="bi bi-arrow-right"></i></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="card h-100 border-0 shadow-sm hover-lift" style="transition: transform 0.3s;">
+          <div class="position-relative overflow-hidden rounded-top" style="height: 250px;">
+            <img src="https://images.unsplash.com/photo-1521369909029-2afed882baee?w=600&h=400&fit=crop" class="w-100 h-100" style="object-fit: cover; transition: transform 0.3s;" alt="Premium" />
+            <div class="position-absolute top-0 start-0 w-100 h-100" style="background: rgba(0,0,0,0.25);"></div>
+            <div class="position-absolute bottom-0 start-0 p-4 text-white">
+              <h3 class="fw-bold mb-0">Premium</h3>
+              <p class="mb-0 small">Calidad excepcional</p>
+            </div>
+          </div>
+          <div class="card-body text-center p-4">
+            <p class="card-text text-muted mb-3">Materiales de alta calidad y acabados de lujo</p>
+            <a href="{% url 'productos' %}" class="btn btn-outline-success">Ver Colección <i class="bi bi-arrow-right"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Productos Destacados -->
+  <section class="mb-5 py-5 bg-light rounded-4">
+    <div class="container">
+      <div class="text-center mb-5">
+        <h2 class="display-5 fw-bold mb-3">Productos Destacados</h2>
+        <p class="text-muted fs-5">Los más vendidos de la semana</p>
+      </div>
+      <div class="row g-4">
+        <div class="col-md-3 col-sm-6">
+          <div class="card border-0 shadow-sm h-100">
+            <div class="position-relative">
+              <img src="https://images.unsplash.com/photo-1588850561407-ed78c282e89b?w=400&h=300&fit=crop" class="card-img-top" alt="Producto" />
+              <span class="position-absolute top-0 end-0 m-3 badge bg-danger">-20%</span>
+            </div>
+            <div class="card-body">
+              <h6 class="card-title fw-bold">Gorra Urban Black</h6>
+              <div class="d-flex align-items-center mb-2">
+                <span class="text-warning">★★★★★</span>
+                <span class="text-muted small ms-2">(128)</span>
+              </div>
+              <div class="d-flex justify-content-between align-items-center">
+                <div>
+                  <span class="text-muted text-decoration-line-through small">$350</span>
+                  <span class="h5 text-primary mb-0 ms-2">$280</span>
+                </div>
+                <button class="btn btn-primary btn-sm"><i class="bi bi-cart-plus"></i></button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-3 col-sm-6">
+          <div class="card border-0 shadow-sm h-100">
+            <div class="position-relative">
+              <img src="https://images.unsplash.com/photo-1575428652377-a2d80e2277fc?w=400&h=300&fit=crop" class="card-img-top" alt="Producto" />
+              <span class="position-absolute top-0 end-0 m-3 badge bg-success">Nuevo</span>
+            </div>
+            <div class="card-body">
+              <h6 class="card-title fw-bold">Gorra Sport Elite</h6>
+              <div class="d-flex align-items-center mb-2">
+                <span class="text-warning">★★★★★</span>
+                <span class="text-muted small ms-2">(95)</span>
+              </div>
+              <div class="d-flex justify-content-between align-items-center">
+                <span class="h5 text-primary mb-0">$399</span>
+                <button class="btn btn-primary btn-sm"><i class="bi bi-cart-plus"></i></button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-3 col-sm-6">
+          <div class="card border-0 shadow-sm h-100">
+            <img src="https://images.unsplash.com/photo-1521369909029-2afed882baee?w=400&h=300&fit=crop" class="card-img-top" alt="Producto" />
+            <div class="card-body">
+              <h6 class="card-title fw-bold">Gorra Classic Blue</h6>
+              <div class="d-flex align-items-center mb-2">
+                <span class="text-warning">★★★★☆</span>
+                <span class="text-muted small ms-2">(64)</span>
+              </div>
+              <div class="d-flex justify-content-between align-items-center">
+                <span class="h5 text-primary mb-0">$299</span>
+                <button class="btn btn-primary btn-sm"><i class="bi bi-cart-plus"></i></button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-3 col-sm-6">
+          <div class="card border-0 shadow-sm h-100">
+            <div class="position-relative">
+              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQM_usAyJXoyZq8TXXFhYYQTBIOsD61-If0tg&s" class="card-img-top" alt="Producto" />
+              <span class="position-absolute top-0 end-0 m-3 badge bg-warning text-dark">Popular</span>
+            </div>
+            <div class="card-body">
+              <h6 class="card-title fw-bold">Gorra Street Red</h6>
+              <div class="d-flex align-items-center mb-2">
+                <span class="text-warning">★★★★★</span>
+                <span class="text-muted small ms-2">(210)</span>
+              </div>
+              <div class="d-flex justify-content-between align-items-center">
+                <span class="h5 text-primary mb-0">$329</span>
+                <button class="btn btn-primary btn-sm"><i class="bi bi-cart-plus"></i></button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="text-center mt-4">
+        <a href="{% url 'productos' %}" class="btn btn-primary btn-lg px-5">Ver Todos los Productos <i class="bi bi-arrow-right"></i></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Beneficios -->
+  <section class="mb-5">
+    <div class="row g-4">
+      <div class="col-md-3 col-sm-6">
+        <div class="text-center p-4 border rounded-4 h-100 bg-white shadow-sm">
+          <div class="bg-primary bg-opacity-10 rounded-circle d-inline-flex align-items-center justify-content-center mb-3" style="width: 80px; height: 80px;">
+            <i class="bi bi-truck text-primary" style="font-size: 2.5rem;"></i>
+          </div>
+          <h5 class="fw-bold mb-2">Envío Rápido</h5>
+          <p class="text-muted mb-0 small">Entrega en 3-5 días hábiles a todo México</p>
+        </div>
+      </div>
+
+      <div class="col-md-3 col-sm-6">
+        <div class="text-center p-4 border rounded-4 h-100 bg-white shadow-sm">
+          <div class="bg-success bg-opacity-10 rounded-circle d-inline-flex align-items-center justify-content-center mb-3" style="width: 80px; height: 80px;">
+            <i class="bi bi-shield-check text-success" style="font-size: 2.5rem;"></i>
+          </div>
+          <h5 class="fw-bold mb-2">Compra Segura</h5>
+          <p class="text-muted mb-0 small">Tus datos protegidos con encriptación SSL</p>
+        </div>
+      </div>
+
+      <div class="col-md-3 col-sm-6">
+        <div class="text-center p-4 border rounded-4 h-100 bg-white shadow-sm">
+          <div class="bg-info bg-opacity-10 rounded-circle d-inline-flex align-items-center justify-content-center mb-3" style="width: 80px; height: 80px;">
+            <i class="bi bi-arrow-repeat text-info" style="font-size: 2.5rem;"></i>
+          </div>
+          <h5 class="fw-bold mb-2">Devoluciones Gratis</h5>
+          <p class="text-muted mb-0 small">30 días para cambios y devoluciones</p>
+        </div>
+      </div>
+
+      <div class="col-md-3 col-sm-6">
+        <div class="text-center p-4 border rounded-4 h-100 bg-white shadow-sm">
+          <div class="bg-warning bg-opacity-10 rounded-circle d-inline-flex align-items-center justify-content-center mb-3" style="width: 80px; height: 80px;">
+            <i class="bi bi-headset text-warning" style="font-size: 2.5rem;"></i>
+          </div>
+          <h5 class="fw-bold mb-2">Soporte 24/7</h5>
+          <p class="text-muted mb-0 small">Atención al cliente siempre disponible</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <style>
+    .hover-lift:hover {
+      transform: translateY(-10px);
+    }
+    .hover-lift:hover img {
+      transform: scale(1.1);
+    }
+  </style>
+{% endblock %}

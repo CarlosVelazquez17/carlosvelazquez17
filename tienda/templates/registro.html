@@ -1,0 +1,184 @@
+{% extends 'base.html' %}
+
+{% block title %}Registro - CapStore{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-8 col-lg-6">
+        <div class="card shadow-lg border-0 rounded-4">
+            <div class="card-body p-5">
+                <!-- Logo/Título -->
+                <div class="text-center mb-4">
+                    <div class="bg-success rounded-circle d-inline-flex align-items-center justify-content-center mb-3" style="width: 80px; height: 80px;">
+                        <i class="bi bi-person-plus-fill text-white" style="font-size: 3rem;"></i>
+                    </div>
+                    <h3 class="fw-bold">Crear Cuenta</h3>
+                    <p class="text-muted">Únete a CapStore y comienza a comprar</p>
+                </div>
+
+                <!-- Mensajes de error/éxito -->
+                {% if messages %}
+                    {% for message in messages %}
+                        <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+                            {{ message }}
+                            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                        </div>
+                    {% endfor %}
+                {% endif %}
+
+                <!-- Formulario de Registro -->
+                <form method="POST" action="{% url 'registro' %}" id="registroForm">
+                    {% csrf_token %}
+                    
+                    <div class="row">
+                        <!-- Nombre -->
+                        <div class="col-md-6 mb-3">
+                            <label for="first_name" class="form-label fw-semibold">
+                                <i class="bi bi-person"></i> Nombre
+                            </label>
+                            <input 
+                                type="text" 
+                                class="form-control" 
+                                id="first_name" 
+                                name="first_name" 
+                                placeholder="Tu nombre"
+                                required
+                            >
+                        </div>
+
+                        <!-- Apellido -->
+                        <div class="col-md-6 mb-3">
+                            <label for="last_name" class="form-label fw-semibold">
+                                <i class="bi bi-person"></i> Apellido
+                            </label>
+                            <input 
+                                type="text" 
+                                class="form-control" 
+                                id="last_name" 
+                                name="last_name" 
+                                placeholder="Tu apellido"
+                                required
+                            >
+                        </div>
+                    </div>
+
+                    <!-- Usuario -->
+                    <div class="mb-3">
+                        <label for="username" class="form-label fw-semibold">
+                            <i class="bi bi-at"></i> Nombre de Usuario
+                        </label>
+                        <input 
+                            type="text" 
+                            class="form-control" 
+                            id="username" 
+                            name="username" 
+                            placeholder="Elige un nombre de usuario"
+                            required
+                        >
+                        <div class="form-text">Solo letras, números y @/./+/-/_</div>
+                    </div>
+
+                    <!-- Contraseña -->
+                    <div class="mb-3">
+                        <label for="password1" class="form-label fw-semibold">
+                            <i class="bi bi-lock"></i> Contraseña
+                        </label>
+                        <div class="input-group">
+                            <input 
+                                type="password" 
+                                class="form-control" 
+                                id="password1" 
+                                name="password1" 
+                                placeholder="Crea una contraseña segura"
+                                required
+                            >
+                            <button class="btn btn-outline-secondary" type="button" id="togglePassword1">
+                                <i class="bi bi-eye" id="eyeIcon1"></i>
+                            </button>
+                        </div>
+                        <div class="form-text">Mínimo 8 caracteres</div>
+                    </div>
+
+                    <!-- Confirmar Contraseña -->
+                    <div class="mb-3">
+                        <label for="password2" class="form-label fw-semibold">
+                            <i class="bi bi-lock-fill"></i> Confirmar Contraseña
+                        </label>
+                        <div class="input-group">
+                            <input 
+                                type="password" 
+                                class="form-control" 
+                                id="password2" 
+                                name="password2" 
+                                placeholder="Confirma tu contraseña"
+                                required
+                            >
+                            <button class="btn btn-outline-secondary" type="button" id="togglePassword2">
+                                <i class="bi bi-eye" id="eyeIcon2"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Botón de Registro -->
+                    <button type="submit" class="btn btn-success btn-lg w-100 mb-3">
+                        <i class="bi bi-person-check"></i> Crear Cuenta
+                    </button>
+                    
+                <!-- Login -->
+                <div class="text-center mt-4">
+                    <p class="text-muted mb-0">
+                        ¿Ya tienes una cuenta? 
+                        <a href="{% url 'login' %}" class="text-primary fw-semibold text-decoration-none">Inicia sesión aquí</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Script para mostrar/ocultar contraseñas -->
+<script>
+    // Toggle password 1
+    document.getElementById('togglePassword1').addEventListener('click', function() {
+        const passwordInput = document.getElementById('password1');
+        const eyeIcon = document.getElementById('eyeIcon1');
+        
+        if (passwordInput.type === 'password') {
+            passwordInput.type = 'text';
+            eyeIcon.classList.remove('bi-eye');
+            eyeIcon.classList.add('bi-eye-slash');
+        } else {
+            passwordInput.type = 'password';
+            eyeIcon.classList.remove('bi-eye-slash');
+            eyeIcon.classList.add('bi-eye');
+        }
+    });
+
+    // Toggle password 2
+    document.getElementById('togglePassword2').addEventListener('click', function() {
+        const passwordInput = document.getElementById('password2');
+        const eyeIcon = document.getElementById('eyeIcon2');
+        
+        if (passwordInput.type === 'password') {
+            passwordInput.type = 'text';
+            eyeIcon.classList.remove('bi-eye');
+            eyeIcon.classList.add('bi-eye-slash');
+        } else {
+            passwordInput.type = 'password';
+            eyeIcon.classList.remove('bi-eye-slash');
+            eyeIcon.classList.add('bi-eye');
+        }
+    });
+
+    // Validar que las contraseñas coincidan
+    document.getElementById('registroForm').addEventListener('submit', function(e) {
+        const password1 = document.getElementById('password1').value;
+        const password2 = document.getElementById('password2').value;
+        
+        if (password1 !== password2) {
+            e.preventDefault();
+            alert('Las contraseñas no coinciden');
+        }
+    });
+</script>
+{% endblock %}
