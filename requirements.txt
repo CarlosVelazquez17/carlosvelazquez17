@@ -25,3 +25,4 @@ threadpoolctl==3.6.0
 tzdata==2025.2
 virtualenv==20.35.4
 gunicorn==23.0.0
+whitenoise
